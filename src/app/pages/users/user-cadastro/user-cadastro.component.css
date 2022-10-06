@@ -1,0 +1,14 @@
+small {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.noShow {
+  display: none;
+}
+
+.show {
+  display: block;
+}

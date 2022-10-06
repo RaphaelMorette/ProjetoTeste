@@ -1,0 +1,155 @@
+<app-header></app-header>
+<div class="margin-content" style="margin: 50px">
+  <h3 class="fw-light py-3">Cadastro | Usuários</h3>
+  <form [formGroup]="formUsuarios" (ngSubmit)="cadastrar()">
+    <div class="col-md-12">
+      <label for="inputNome" class="form-label">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputNome"
+        formControlName="nome"
+      />
+      <div
+        *ngIf="formUsuarios.get('nome')?.errors?.['required'] && formUsuarios.get('nome')?.touched"
+      >
+        <small> Campo nome obrigatório </small>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <label for="inputTelefone" class="form-label">Telefone</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputTelefone"
+        formControlName="telefone"
+      />
+      <div
+        *ngIf="formUsuarios.get('telefone')?.errors?.['required'] && formUsuarios.get('telefone')?.touched"
+      >
+        <small> Campo telefone obrigatório </small>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <label for="inputEmail" class="form-label">E-mail</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputEmail"
+        formControlName="email"
+      />
+      <div
+        *ngIf="formUsuarios.get('email')?.errors?.['required'] && formUsuarios.get('email')?.touched"
+      >
+        <small> Campo email obrigatório </small>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <label for="inputSenha" class="form-label">Senha</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputSenha"
+        formControlName="senha"
+      />
+      <div
+        *ngIf="formUsuarios.get('senha')?.errors?.['required'] && formUsuarios.get('senha')?.touched"
+      >
+        <small> Campo senha obrigatório </small>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <label for="inputAcesso" class="form-label">Acesso</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputAcesso"
+        formControlName="acesso"
+      />
+      <div
+        *ngIf="formUsuarios.get('acesso')?.errors?.['required'] && formUsuarios.get('acesso')?.touched"
+      >
+        <small> Campo acesso obrigatório </small>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <label for="inputCep" class="form-label">CEP</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputCep"
+        formControlName="cep"
+        (blur)="buscarCep($event)"
+      />
+      <small *ngIf="cepNaoEncontrado" style="color: red"
+        >CEP não encontrado, coloque um CEP válido!</small
+      >
+      <div
+        *ngIf="formUsuarios.get('cep')?.errors?.['required'] && formUsuarios.get('cep')?.touched"
+      >
+        <small> Campo CEP obrigatório </small>
+      </div>
+    </div>
+    <div [class]="classToApply">
+      <div class="col-3">
+        <label for="inputLogradouro" class="form-label">Logradouro</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLogradouro"
+          formControlName="logradouro"
+        />
+      </div>
+
+      <div class="col-3">
+        <label for="inputBairro" class="form-label">Bairro</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputBairro"
+          formControlName="bairro"
+        />
+      </div>
+
+      <div class="col-3">
+        <label for="inputCidade" class="form-label">Cidade</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputCidade"
+          formControlName="cidade"
+        />
+      </div>
+
+      <div class="col-3">
+        <label for="inputEstado" class="form-label">Estado</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputEstado"
+          formControlName="estado"
+        />
+      </div>
+    </div>
+
+    <div class="col-12 py-3">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin-right: 10px"
+        [disabled]="!formUsuarios.valid"
+      >
+        Criar
+      </button>
+      <button type="submit" class="btn btn-dark" routerLink="/home">
+        Voltar
+      </button>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>
